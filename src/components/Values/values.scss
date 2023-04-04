@@ -1,0 +1,41 @@
+.main {
+  display: flex;
+  justify-content: space-around;
+  .left,
+  .right {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 100px;
+
+    .label {
+      font-family: JetBrainsMonoNL NFM, Consolas;
+      font-weight: bold;
+      color: lightslategray;
+    }
+
+    .symbol {
+      font-family: JetBrainsMonoNL NFM, Consolas;
+      font-weight: bold;
+      color: black;
+    }
+
+    .USDT {
+      background-color: #26a17b;
+    }
+    .BTC {
+      background-color: #f2a900;
+    }
+  }
+
+  .orders {
+    display: flex;
+    flex-direction: column;
+
+    .symbol .operation .date {
+      font-family: JetBrainsMonoNL NFM, Consolas;
+      font-weight: bold;
+      color: black;
+    }
+  }
+}
