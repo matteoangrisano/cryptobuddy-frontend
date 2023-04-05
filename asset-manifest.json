@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cryptobuddy-frontend/static/css/main.4ddb51a4.css",
-    "main.js": "/cryptobuddy-frontend/static/js/main.aeb016a8.js",
+    "main.css": "/cryptobuddy-frontend/static/css/main.6b681ca3.css",
+    "main.js": "/cryptobuddy-frontend/static/js/main.7ab8495f.js",
     "static/js/787.cda612ba.chunk.js": "/cryptobuddy-frontend/static/js/787.cda612ba.chunk.js",
     "index.html": "/cryptobuddy-frontend/index.html",
-    "main.4ddb51a4.css.map": "/cryptobuddy-frontend/static/css/main.4ddb51a4.css.map",
-    "main.aeb016a8.js.map": "/cryptobuddy-frontend/static/js/main.aeb016a8.js.map",
+    "main.6b681ca3.css.map": "/cryptobuddy-frontend/static/css/main.6b681ca3.css.map",
+    "main.7ab8495f.js.map": "/cryptobuddy-frontend/static/js/main.7ab8495f.js.map",
     "787.cda612ba.chunk.js.map": "/cryptobuddy-frontend/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4ddb51a4.css",
-    "static/js/main.aeb016a8.js"
+    "static/css/main.6b681ca3.css",
+    "static/js/main.7ab8495f.js"
   ]
 }
