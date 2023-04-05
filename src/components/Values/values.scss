@@ -67,16 +67,36 @@
   }
 
   .orders {
+    flex-grow: 0.3;
+    display: flex;
+    justify-content: space-between;
+
+    .order {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .time,
-    .side,
+    .side-buy,
+    .side-sell,
     .price {
       font-family: JetBrainsMonoNL NFM, Consolas;
-      font-weight: bold;
+    }
+
+    .time {
       font-size: small;
     }
 
-    .side {
-      color: lightslategray;
+    .price {
+      font-size: small;
+    }
+
+    .side-buy {
+      color: green;
+    }
+    .side-sell {
+      color: red;
     }
   }
 }

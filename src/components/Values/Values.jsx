@@ -93,11 +93,17 @@ const Values = () => {
       </Box>
       <Box className="orders">
         {orders.map((order) => (
-          <Box>
+          <Box className="order">
             <Typography className="time" mt={2}>
-              {new Date(order.time).toLocaleString()}
+              {new Date(order.time).toLocaleString().slice(0, 8)}
             </Typography>
-            <Typography className="side" mt={2}>
+            <Typography className="time">
+              {new Date(order.time).toLocaleString().slice(10)}
+            </Typography>
+            <Typography
+              className={order.side === "BUY" ? "side-buy" : "side-sell"}
+              mt={2}
+            >
               {order.side}
             </Typography>
             <Typography className="price" mt={2}>
