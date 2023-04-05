@@ -8,11 +8,11 @@ import { Box } from "@mui/material";
 function App() {
   return (
     <Box className="app">
-      <Box className="chart">
+      <Box className="top">
         <Chart></Chart>
         <Portfolio></Portfolio>
       </Box>
-      <Box className="values">
+      <Box className="bottom">
         <Values></Values>
       </Box>
     </Box>

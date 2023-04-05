@@ -11,9 +11,9 @@ const Portfolio = () => {
     setTimeout(async () => {
       const fetchData = async () => {
         const usdt = await axios.get(`http://3.249.164.104:5000/usdt`);
-        setUSDT(usdt.data);
+        setUSDT(parseFloat(usdt.data));
         const btc = await axios.get(`http://3.249.164.104:5000/btc`);
-        setBTC(btc.data);
+        setBTC(parseFloat(btc.data));
       };
       fetchData();
     }, 1000);
@@ -21,7 +21,7 @@ const Portfolio = () => {
 
   return (
     <Box className="portfolio">
-      <Typography className="label" mt={2}>
+      <Typography className="main-label" mt={2}>
         Portfolio
       </Typography>
       <Box>
@@ -29,7 +29,7 @@ const Portfolio = () => {
           USDT
         </Typography>
         <Button className="USDT" variant="contained" color="secondary">
-          {usdt ? usdt : null}
+          {usdt ? usdt.toFixed(2) : null}
         </Button>
       </Box>
       <Box>
@@ -37,7 +37,7 @@ const Portfolio = () => {
           BTC
         </Typography>
         <Button className="BTC" variant="contained" color="secondary">
-          {btc ? btc : null}
+          {btc ? btc.toFixed(2) : null}
         </Button>
       </Box>
     </Box>

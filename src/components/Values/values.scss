@@ -3,9 +3,7 @@
   justify-content: space-around;
 
   .commands,
-  .values,
-  .portfolio {
-    // border: 1px solid black;
+  .params {
     display: flex;
 
     .label {
@@ -39,7 +37,14 @@
     }
   }
 
-  .values {
+  .params {
+    display: flex;
+
+    .left,
+    .right {
+      margin-left: 20px;
+    }
+
     .lastprice,
     .highprice,
     .triggerbuyprice,

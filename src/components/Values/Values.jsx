@@ -57,16 +57,14 @@ const Values = () => {
           </Button>
         </Box>
       </Box>
-      <Box className="values">
-        <Box>
+      <Box className="params">
+        <Box className="left">
           <Typography className="label" mt={2}>
             lastPrice
           </Typography>
           <Button className="lastprice" variant="outlined">
             {crypto[0]?.lastPrice}
           </Button>
-        </Box>
-        <Box>
           <Typography className="label" mt={2}>
             highPrice
           </Typography>
@@ -74,15 +72,13 @@ const Values = () => {
             {crypto[0]?.highPrice}
           </Button>
         </Box>
-        <Box>
+        <Box className="right">
           <Typography className="label" mt={2}>
             triggerBuyPrice
           </Typography>
           <Button className="triggerbuyprice" variant="outlined">
             {crypto[0]?.triggerBuyPrice}
           </Button>
-        </Box>
-        <Box>
           <Typography className="label" mt={2}>
             triggerSellPrice
           </Typography>

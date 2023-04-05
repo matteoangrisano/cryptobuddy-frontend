@@ -3,16 +3,22 @@
   flex-direction: column;
   margin-left: 20px;
 
+  .main-label,
   .label {
     font-family: JetBrainsMonoNL NFM, Consolas;
     font-weight: bold;
     color: lightslategray;
   }
 
+  .main-label {
+    font-size: 40px;
+  }
   .USDT {
     background-color: #26a17b;
+    width: 100px;
   }
   .BTC {
     background-color: #f2a900;
+    width: 100px;
   }
 }
