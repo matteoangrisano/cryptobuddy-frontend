@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./values.scss";
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, Modal, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 const changePrice = async (e, price) => {
@@ -13,9 +13,8 @@ const changePrice = async (e, price) => {
 const Values = () => {
   const [crypto, setCrypto] = useState([]);
   const [mode, setMode] = useState();
-  const [usdt, setUSDT] = useState();
-  const [btc, setBTC] = useState();
   const [orders, setOrders] = useState([]);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setTimeout(async () => {
@@ -24,105 +23,88 @@ const Values = () => {
         setCrypto(res1.data);
         const res2 = await axios.get(`http://3.249.164.104:5000/mode`);
         setMode(res2.data);
-        const res3 = await axios.get(`http://3.249.164.104:5000/usdt`);
-        setUSDT(res3.data);
-        const res4 = await axios.get(`http://3.249.164.104:5000/btc`);
-        setBTC(res4.data);
         const res5 = await axios.get(`http://3.249.164.104:5000/orders`);
-        setOrders(res5.data);
-        console.log(orders);
+        setOrders(res5.data.reverse());
       };
       fetchData();
     }, 1000);
   }, [crypto]);
 
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Box className="main">
-      <Box className="left">
-        <div>
+      <Box className="commands">
+        <Box className="setprice">
           <Typography className="label" mt={2}>
             setPrice
           </Typography>
           <TextField
-            label="lastPrice"
+            className="textfield"
             focused
             color="success"
             component="form"
             onSubmit={(e) => changePrice(e, e.target[0].value)}
           ></TextField>
-        </div>
-
-        <div>
+        </Box>
+        <Box>
           <Typography className="label" mt={2}>
             mode
           </Typography>
-          <Button variant="contained" color="secondary">
+          <Button className="mode" variant="contained" color="secondary">
             {mode ? mode : null}
           </Button>
-        </div>
+        </Box>
       </Box>
-      <Box className="center">
-        <div>
+      <Box className="values">
+        <Box>
           <Typography className="label" mt={2}>
             lastPrice
           </Typography>
-          <Button variant="contained" color="success">
+          <Button className="lastprice" variant="outlined">
             {crypto[0]?.lastPrice}
           </Button>
-        </div>
-        <div>
+        </Box>
+        <Box>
           <Typography className="label" mt={2}>
             highPrice
           </Typography>
-          <Button variant="outlined">{crypto[0]?.highPrice}</Button>
-        </div>
-        <div>
+          <Button className="highprice" variant="outlined">
+            {crypto[0]?.highPrice}
+          </Button>
+        </Box>
+        <Box>
           <Typography className="label" mt={2}>
             triggerBuyPrice
           </Typography>
-          <Button variant="outlined">{crypto[0]?.triggerBuyPrice}</Button>
-        </div>
-        <div>
+          <Button className="triggerbuyprice" variant="outlined">
+            {crypto[0]?.triggerBuyPrice}
+          </Button>
+        </Box>
+        <Box>
           <Typography className="label" mt={2}>
             triggerSellPrice
           </Typography>
-          <Button variant="outlined">{crypto[0]?.triggerSellPrice}</Button>
-        </div>
-      </Box>
-      <Box className="right">
-        <div>
-          <Typography className="label" mt={2}>
-            USDT
-          </Typography>
-          <Button className="USDT" variant="contained" color="secondary">
-            {usdt ? usdt : null}
+          <Button className="triggersellprice" variant="outlined">
+            {crypto[0]?.triggerSellPrice}
           </Button>
-        </div>
-        <div>
-          <Typography className="label " mt={2}>
-            BTC
-          </Typography>
-          <Button className="BTC" variant="contained" color="secondary">
-            {btc ? btc : null}
-          </Button>
-        </div>
+        </Box>
       </Box>
       <Box className="orders">
-        <div>
-          {orders.map((order) => (
-            <>
-              <Typography className="symbol" mt={2}>
-                {order.symbol}
-              </Typography>
-              <Typography className="type" mt={2}>
-                {order.side}{" "}
-              </Typography>
-              <Typography className="date" mt={2}>
-                {new Date(order.time).toLocaleString()}{" "}
-              </Typography>
-            </>
-          ))}
-        </div>
+        {orders.map((order) => (
+          <Box>
+            <Typography className="time" mt={2}>
+              {new Date(order.time).toLocaleString()}
+            </Typography>
+            <Typography className="side" mt={2}>
+              {order.side}
+            </Typography>
+            <Typography className="price" mt={2}>
+              {order.price}
+            </Typography>
+          </Box>
+        ))}
       </Box>
     </Box>
   );

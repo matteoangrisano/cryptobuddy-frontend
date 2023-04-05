@@ -1,1 +1,15 @@
+.app {
+  display: flex;
+  flex-direction: column;
 
+  .chart {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+  }
+
+  .values {
+    display: flex;
+    flex-direction: column;
+  }
+}
