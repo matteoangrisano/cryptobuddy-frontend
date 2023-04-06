@@ -10,9 +10,9 @@ const Portfolio = () => {
   useEffect(() => {
     setTimeout(async () => {
       const fetchData = async () => {
-        const usdt = await axios.get(`http://3.249.164.104:5000/usdt`);
+        const usdt = await axios.get(`http://5.94.80.25:5000/usdt`);
         setUSDT(parseFloat(usdt.data));
-        const btc = await axios.get(`http://3.249.164.104:5000/btc`);
+        const btc = await axios.get(`http://5.94.80.25:5000/btc`);
         setBTC(parseFloat(btc.data));
       };
       fetchData();
@@ -29,7 +29,7 @@ const Portfolio = () => {
           USDT
         </Typography>
         <Button className="USDT" variant="contained" color="secondary">
-          {usdt ? usdt.toFixed(2) : null}
+          ₮ {usdt ? usdt.toFixed(2) : null}
         </Button>
       </Box>
       <Box>
@@ -37,7 +37,7 @@ const Portfolio = () => {
           BTC
         </Typography>
         <Button className="BTC" variant="contained" color="secondary">
-          {btc ? btc.toFixed(2) : null}
+          ฿ {btc ? btc.toFixed(2) : null}
         </Button>
       </Box>
     </Box>

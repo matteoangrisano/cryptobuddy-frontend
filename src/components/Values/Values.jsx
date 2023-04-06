@@ -6,7 +6,7 @@ import { Box } from "@mui/system";
 
 const changePrice = async (e, price) => {
   e.preventDefault();
-  await axios.post("http://3.249.164.104:5000/post", { value: price });
+  await axios.post("http://5.94.80.25:5000/post", { value: price });
   console.log(e.target[0].value);
 };
 
@@ -19,11 +19,11 @@ const Values = () => {
   useEffect(() => {
     setTimeout(async () => {
       const fetchData = async () => {
-        const res1 = await axios.get(`http://3.249.164.104:5000/get/btc`);
+        const res1 = await axios.get(`http://5.94.80.25:5000/get/btc`);
         setCrypto(res1.data);
-        const res2 = await axios.get(`http://3.249.164.104:5000/mode`);
+        const res2 = await axios.get(`http://5.94.80.25:5000/mode`);
         setMode(res2.data);
-        const res5 = await axios.get(`http://3.249.164.104:5000/orders`);
+        const res5 = await axios.get(`http://5.94.80.25:5000/orders`);
         setOrders(res5.data.reverse());
       };
       fetchData();
