@@ -10,9 +10,9 @@ const Portfolio = () => {
   useEffect(() => {
     setTimeout(async () => {
       const fetchData = async () => {
-        const usdt = await axios.get(`http://5.94.80.25:5000/usdt`);
+        const usdt = await axios.get(`http://localhost:5000/usdt`);
         setUSDT(parseFloat(usdt.data));
-        const btc = await axios.get(`http://5.94.80.25:5000/btc`);
+        const btc = await axios.get(`http://localhost:5000/btc`);
         setBTC(parseFloat(btc.data));
       };
       fetchData();
