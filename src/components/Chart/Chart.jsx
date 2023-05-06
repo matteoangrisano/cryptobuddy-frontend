@@ -42,7 +42,7 @@ const Chart = () => {
   useEffect(() => {
     setTimeout(async () => {
       const fetchData = async () => {
-        const res = await axios.get(`http://3.249.164.104:5000/get/btc`);
+        const res = await axios.get(`http://34.245.66.188:5000/get/btc`);
         setCrypto(res.data.reverse());
       };
       fetchData();
