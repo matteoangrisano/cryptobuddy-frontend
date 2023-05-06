@@ -26,14 +26,6 @@
     flex-direction: column;
     align-items: center;
 
-    .setprice {
-      display: flex;
-      flex-direction: column;
-
-      .textfield {
-        width: 100px;
-      }
-    }
     .mode {
       width: 100px;
     }
@@ -69,7 +61,22 @@
   .orders {
     flex-grow: 0.3;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+
+    .m,
+    .s {
+      display: flex;
+      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+
+      .label {
+        font-family: JetBrainsMonoNL NFM, Consolas;
+        font-weight: bold;
+        color: lightslategray;
+      }
+    }
 
     .order {
       display: flex;
@@ -80,7 +87,7 @@
     .time,
     .side-buy,
     .side-sell,
-    .price {
+    .quantity {
       font-family: JetBrainsMonoNL NFM, Consolas;
     }
 
@@ -88,7 +95,7 @@
       font-size: small;
     }
 
-    .price {
+    .quantity {
       font-size: small;
     }
 

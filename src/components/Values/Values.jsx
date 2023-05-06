@@ -73,52 +73,55 @@ const Values = () => {
         </Box>
       </Box>
       <Box className="orders">
-        <Typography className="label" mt={2}>
-          Ordini M
-        </Typography>
-        {orders1.map((order) => (
-          <Box className="order">
-            <Typography className="time" mt={2}>
-              {new Date(order.time).toLocaleString().slice(0, 8)}
-            </Typography>
-            <Typography className="time">
-              {new Date(order.time).toLocaleString().slice(10)}
-            </Typography>
-            <Typography
-              className={order.side === "BUY" ? "side-buy" : "side-sell"}
-              mt={2}
-            >
-              {order.side}
-            </Typography>
-            <Typography className="price" mt={2}>
-              {order.price}
-            </Typography>
-          </Box>
-        ))}
-      </Box>
-      <Box className="orders">
-        <Typography className="label" mt={2}>
-          Ordini S
-        </Typography>
-        {orders2.map((order) => (
-          <Box className="order">
-            <Typography className="time" mt={2}>
-              {new Date(order.time).toLocaleString().slice(0, 8)}
-            </Typography>
-            <Typography className="time">
-              {new Date(order.time).toLocaleString().slice(10)}
-            </Typography>
-            <Typography
-              className={order.side === "BUY" ? "side-buy" : "side-sell"}
-              mt={2}
-            >
-              {order.side}
-            </Typography>
-            <Typography className="price" mt={2}>
-              {order.price}
-            </Typography>
-          </Box>
-        ))}
+        <Box className="m">
+          <Typography className="label" mt={2}>
+            Orders M
+          </Typography>
+          {orders1.map((order) => (
+            <Box className="order">
+              <Typography className="time" mt={2}>
+                {new Date(order.time).toLocaleString().slice(0, 8)}
+              </Typography>
+              <Typography className="time">
+                {new Date(order.time).toLocaleString().slice(10)}
+              </Typography>
+              <Typography
+                className={order.side === "BUY" ? "side-buy" : "side-sell"}
+                mt={2}
+              >
+                {order.side}
+              </Typography>
+              <Typography className="quantity" mt={2}>
+                {parseFloat(order.origQty).toFixed(5)}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
+
+        <Box className="s">
+          <Typography className="label" mr={2}>
+            Orders S
+          </Typography>
+          {orders2.map((order) => (
+            <Box className="order">
+              <Typography className="time" mt={2}>
+                {new Date(order.time).toLocaleString().slice(0, 8)}
+              </Typography>
+              <Typography className="time">
+                {new Date(order.time).toLocaleString().slice(10)}
+              </Typography>
+              <Typography
+                className={order.side === "BUY" ? "side-buy" : "side-sell"}
+                mt={2}
+              >
+                {order.side}
+              </Typography>
+              <Typography className="quantity" mt={2}>
+                {parseFloat(order.origQty).toFixed(5)}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
       </Box>
     </Box>
   );

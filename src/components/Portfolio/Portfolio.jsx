@@ -13,13 +13,13 @@ const Portfolio = () => {
     setTimeout(async () => {
       const fetchData = async () => {
         const usdt1 = await axios.get(`http://34.245.66.188:5000/usdt1`);
-        setUSDT1(usdt1.data);
+        setUSDT1(parseFloat(usdt1.data));
         const btc1 = await axios.get(`http://34.245.66.188:5000/btc1`);
-        setBTC1(btc1.data);
+        setBTC1(parseFloat(btc1.data));
         const usdt2 = await axios.get(`http://34.245.66.188:5000/usdt2`);
-        setUSDT2(usdt2.data);
+        setUSDT2(parseFloat(usdt2.data));
         const btc2 = await axios.get(`http://34.245.66.188:5000/btc2`);
-        setBTC2(btc2.data);
+        setBTC2(parseFloat(btc2.data));
       };
       fetchData();
     }, 1000);
@@ -35,7 +35,7 @@ const Portfolio = () => {
           USDT
         </Typography>
         <Button className="USDT" variant="contained" color="secondary">
-          ₮ {usdt1 ? usdt1 : null}
+          ₮ {usdt1 ? usdt1.toFixed(2) : null}
         </Button>
       </Box>
       <Box>
@@ -43,7 +43,7 @@ const Portfolio = () => {
           BTC
         </Typography>
         <Button className="BTC" variant="contained" color="secondary">
-          ฿ {btc1 ? btc1 : null}
+          ฿ {btc1 ? btc1.toFixed(2) : null}
         </Button>
       </Box>
       <Typography className="label" mt={2}>
@@ -54,7 +54,7 @@ const Portfolio = () => {
           USDT
         </Typography>
         <Button className="USDT" variant="contained" color="secondary">
-          ₮ {usdt2 ? usdt2 : null}
+          ₮ {usdt2 ? usdt2.toFixed(2) : null}
         </Button>
       </Box>
       <Box>
@@ -62,7 +62,7 @@ const Portfolio = () => {
           BTC
         </Typography>
         <Button className="BTC" variant="contained" color="secondary">
-          ฿ {btc2 ? btc2 : null}
+          ฿ {btc2 ? btc2.toFixed(2) : null}
         </Button>
       </Box>
     </Box>
